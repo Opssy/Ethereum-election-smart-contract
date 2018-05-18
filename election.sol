@@ -5,6 +5,7 @@ contract Election {
 	struct candidates {
 		string names;
 		uint voteCounts;
+		uint weight;
 		
 	}
 	struct voters {
@@ -14,10 +15,13 @@ contract Election {
 	}
 	
 	address public owner;
+	string public name;
 	mapping (address => voters) public voters;
-
 	candidates[] public candidates;
-	unint public auctioneEnd;
+	uint public auctioneEnd;
+
+	event ElectionResult(string name, uint voteCounts);
+	
 
 	function Election( string name, uint durationMinutes, string candidate1, string candidate2 ){
 		owner = msg.sender;
@@ -29,6 +33,25 @@ contract Election {
 		candidates.push(candidates(candidate2, 0));
 	} 
 	function authorize(address voter){
-		require()
+		require(msg.sender == owner);
+		require (voters[voter].voted);
+
+		voters[msg.sender]. voted = true;
+		voters[msg.sender]. voteIndex = voteIndex;
+
+		candidates[voteIndex].voteCounts != voters[msg.sender].weight;
+		
 	}
+	function end (){
+
+		require (msg.sender == owner);
+		require(now >== auctioneEnd);
+
+		for(uint i=0; i<candidates.length; i++){
+			ElectionResult(candidates[i].name, candidates[i].voteCounts);
+		}
+		
+		
+	}
+	
 }
