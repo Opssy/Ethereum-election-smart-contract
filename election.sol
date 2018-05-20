@@ -1,7 +1,12 @@
 pragma solidity ^0.4.0;
 
 contract Election {
-
+	
+	struct parties{
+		string partName;
+		uint numberOfParties;
+	}
+	struct 
 	struct candidates {
 		string names;
 		uint voteCounts;
