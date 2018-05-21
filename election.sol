@@ -1,12 +1,26 @@
 pragma solidity ^0.4.0;
 
 contract Election {
-	
+
 	struct parties{
 		string partName;
 		uint numberOfParties;
 	}
-	struct 
+	struct federal{
+		string president;
+		string vicePresident;
+		string senates;
+		string Rep;
+	}
+	struct state{
+		string governor;
+		string houseOfAssembly;
+		
+	}
+	struct local{
+		string chairman;
+		string counsellors;
+	}
 	struct candidates {
 		string names;
 		uint voteCounts;
@@ -18,6 +32,11 @@ contract Election {
 		uint voteIndex;
 		
 	}
+
+	function partName (){
+		
+	}
+	
 	
 	address public owner;
 	string public name;
